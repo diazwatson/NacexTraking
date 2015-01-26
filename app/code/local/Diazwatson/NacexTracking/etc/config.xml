@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Diazwatson_NacexTracking
+ *
+ * @category    Diazwatson
+ * @package     Diazwatson_NacexTracking
+ * @Date        01/2015
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @author      @diazwatson
+ */-->
+<config>
+    <modules>
+        <Diazwatson_NacexTracking>
+            <version>0.0.1</version>
+        </Diazwatson_NacexTracking>
+    </modules>
+    <global>
+        <blocks>
+            <nacextracking>
+                <class>Diazwatson_NacexTracking_Block</class>
+            </nacextracking>
+        </blocks>
+        <models>
+            <nacextracking>
+                <class>Diazwatson_NacexTracking_Model</class>
+            </nacextracking>
+        </models>
+        <helpers>
+            <nacextracking>
+                <class>Diazwatson_NacexTracking_Helper</class>
+            </nacextracking>
+            <shipping>
+                <rewrite>
+                    <data>Diazwatson_NacexTracking_Helper_Shipping_Data</data>
+                </rewrite>
+            </shipping>
+        </helpers>
+    </global>
+    <default>
+        <carriers>
+            <nacex>
+                <active>1</active>
+                <model>nacextracking/nacex</model>
+                <title>Nacex</title>
+                <sort_order>10</sort_order>
+                <sallowspecific>0</sallowspecific>
+                <express_max_weight>1</express_max_weight>
+            </nacex>
+        </carriers>
+    </default>
+    <frontend>
+        <events>
+            <sales_order_shipment_track_collection_load_after>
+                <observers>
+                    <nacextracking>
+                        <type>singleton</type>
+                        <class>nacextracking/observer</class>
+                        <method>patata</method>
+                    </nacextracking>
+                </observers>
+            </sales_order_shipment_track_collection_load_after>
+        </events>
+    </frontend>
+</config>

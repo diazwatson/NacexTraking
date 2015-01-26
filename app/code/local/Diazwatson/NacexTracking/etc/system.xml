@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Diazwatson_NacexTracking
+ *
+ * @category    Diazwatson
+ * @package     Diazwatson_NacexTracking
+ * @Date        01/2015
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @author      @diazwatson
+ */-->
+<config>
+    <sections>
+        <carriers>
+            <groups>
+                <nacex translate="label" module="nacextracking">
+                    <label>Nacex Basic</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>130</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled for Checkout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Nacex</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>active</depends>
+                        </title>
+                        <sallowspecific translate="label">
+                            <label>Ship to Applicable Countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1900</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>active</depends>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <label>Ship to Specific Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>1910</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <depends>active</depends>
+                        </specificcountry>
+                        <!--standard_price translate="label">
+                            <label>Standard Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1915</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <comment></comment>
+                            <depends>active</depends>
+                        </standard_price->
+                        <!--express_price translate="label">
+                            <label>Express Price</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1916</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <comment></comment>
+                            <depends>active</depends>
+                        </express_price-->
+                        <express_max_weight translate="label">
+                            <label>Express Max Weight</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1920</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                            <comment></comment>
+                            <depends>active</depends>
+                        </express_max_weight>
+                    </fields>
+                </nacex>
+            </groups>
+        </carriers>
+    </sections>
+</config>
